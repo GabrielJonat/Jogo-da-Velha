@@ -1,0 +1,190 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: rgb(66, 101, 157);
+    background: linear-gradient(to right,rgb(66, 101, 157), rgb(164, 65, 151), #ff7e5f, #feb47b, #eae3e3d0);
+    
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: rgb(240, 198, 10);
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 0px 0px 10px rgba(242, 232, 168, 0.12);
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    padding: 2em;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #333;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    position: relative;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    position: absolute;
+    padding: -1%;
+}
+
+.card .card-back,
+.card .card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 5px;
+}
+
+.card .card-front {
+    background-color:aliceblue;
+    transform: rotateY(180deg);
+}
+
+.card.matched {
+    animation: pulse 0.5s ease;
+    animation-iteration-count: 3;
+}
+
+.card.matched {
+    background-color: #4CAF50; /* cor de fundo verde para indicar match */
+    transition: background-color 0.3s ease; /* adiciona uma transição suave */
+}
+
+.card.matched .card-front {
+    background-color:rgb(17, 173, 173); /* Cor de fundo permanente para o lado da frente após o match */
+}
+
+
+#timer {
+    margin-bottom: 2em;
+    color: rgb(175, 138, 210);
+    font-size: medium;
+    text-shadow: 0px 0px 10px rgba(104, 6, 232, 0.752);
+}
+
+/* Animação de pulsar */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.envelope{
+
+    background-color: rgb(82, 82, 153);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+
+}
+
+.title{
+
+    background-color: rgb(111, 111, 126);
+    border-radius: 10px;
+    margin-bottom: 1em;
+    margin-top: -0.8%;
+    padding: 0.3em;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .game-board {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas menores */
+    }
+
+    .card {
+        width: 90px; /* Largura menor para cartas em telas pequenas */
+        height: 90px; /* Altura correspondente */
+    }
+
+    h1 {
+        font-size: 24px; /* Tamanho de fonte menor em telas pequenas */
+    }
+
+    #timer {
+        font-size: 14px; /* Tamanho de fonte menor para o timer */
+    }
+}
+
+.modal {
+    display: none; /* Oculta o modal por padrão */
+    position: fixed; /* Fixa na tela */
+    z-index: 1; /* Fica na frente */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro com opacidade */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centraliza */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do conteúdo */
+}
+
+.close-button {
+    color: #aaa;
+    float: right; /* Alinha à direita */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-link {
+    display: inline-block; /* Faz com que o link se comporte como um bloco inline */
+    padding: 10px 20px; /* Adiciona espaço interno */
+    color: white; /* Cor do texto */
+    background-color: #007bff; /* Cor de fundo */
+    text-decoration: none; /* Remove o sublinhado */
+    border-radius: 5px; /* Arredonda os cantos */
+    transition: background-color 0.3s, transform 0.2s; /* Animação suave para hover */
+}
+
+.button-link:hover {
+    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+.button-link:active {
+    transform: scale(0.95); /* Reduzido ao clicar */
+}
