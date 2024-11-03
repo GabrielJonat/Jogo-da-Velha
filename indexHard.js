@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const cardsArray = ['./img/maca.webp', './img/banana.png', './img/uva.png', './img/morango.png', './img/cereja.png', './img/abacaxi.png', './img/melancia.png', './img/limao.png','./img/roma.png','./img/melao.png','./img/figo.png','./img/laranja.png'];
+    const cardsArray = ['./img/maca.webp', './img/banana.png', './img/uva.png', './img/morango.png', './img/cereja.png', './img/abacaxi.png', './img/melancia.png', './img/limao.png','./img/roma.png','./img/melao.jpg','./img/figo.png','./img/laranja.png'];
     const gameBoard = document.querySelector('.game-board');
     const timerElement = document.getElementById('timer');
     let cards = [...cardsArray, ...cardsArray];
